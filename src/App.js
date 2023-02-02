@@ -11,16 +11,22 @@ function Card({ stateChanger, metaData, id, prompt }) {
 }
 
 function Export({ metaData }) {
-  const handleButton = (event) => {
-    fetch(`http://localhost:3000/canvas`, {
+  const handleButton = async() => {
+    const response = await fetch(`http://localhost:3000/canvas`, {
       method: "POST",
       mode: "cors",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(metaData),
     });
+    const img = await response.blob()
+    let url = window.URL.createObjectURL(img);
+    let a = document.createElement('a');
+    a.href = url;
+    a.download = 'bingo_2023.png';
+    a.click();
   };
   return (
-    <div className="">
+    <div className="flex justify-center">
       <button
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         onClick={handleButton}
