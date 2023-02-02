@@ -26,7 +26,7 @@ const IconOption = (props) => (
   </Option>
 );
 
-function Search() {
+function Search({ id, metaData, stateChanger }) {
   const [inputValue, setValue] = useState("");
   const [selectedValue, setSelectedValue] = useState(null);
 
@@ -39,23 +39,22 @@ function Search() {
   const handleChange = (value) => {
     setSelectedValue(value);
 
-    const link = value?.volumeInfo.imageLinks.thumbnail
-    fetch(
-      `http://localhost:3000/canvas`,
-      {
-        method: 'POST',
-        mode: 'cors',
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({"imgLink": link})
-      })
+    const link = value?.volumeInfo.imageLinks.thumbnail;
+
+    // Create a temporary copy of your items array
+    const itemsCopy = metaData.slice();
+    // Find the index of the items where the item has the id you want
+    const idx = itemsCopy.findIndex((x) => x.id === parseInt(id));
+    // Re-assign the item to have the same values as before (name and id), but change the checked to true
+    itemsCopy[idx] = { ...itemsCopy[idx], imgLink: link, isFilled: true };
+
+    // Update the state with our modified copy
+    stateChanger(itemsCopy);
   };
 
   // load options using API call
   const loadOptions = (inputValue) => {
-
-    return fetch(
-      `http://localhost:3000/api?search_q=${inputValue}}`
-    )
+    return fetch(`http://localhost:3000/api?search_q=${inputValue}}`)
       .then((res) => res.json())
       .then((data) => data);
   };
@@ -73,7 +72,10 @@ function Search() {
         onInputChange={handleInputChange}
         onChange={handleChange}
       />
-      <pre>Selected Value: {JSON.stringify(selectedValue?.volumeInfo.imageLinks.thumbnail || {}, null, 2)}</pre>
+      <pre>
+        Selected Value:{" "}
+        {JSON.stringify(selectedValue?.volumeInfo.title || {}, null, 2)}
+      </pre>
     </div>
   );
 }
