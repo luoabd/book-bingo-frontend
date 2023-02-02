@@ -38,6 +38,16 @@ function Search() {
   // handle selection
   const handleChange = (value) => {
     setSelectedValue(value);
+
+    const link = value?.volumeInfo.imageLinks.thumbnail
+    fetch(
+      `http://localhost:3000/canvas`,
+      {
+        method: 'POST',
+        mode: 'cors',
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({"imgLink": link})
+      })
   };
 
   // load options using API call
@@ -63,7 +73,7 @@ function Search() {
         onInputChange={handleInputChange}
         onChange={handleChange}
       />
-      <pre>Selected Value: {JSON.stringify(selectedValue || {}, null, 2)}</pre>
+      <pre>Selected Value: {JSON.stringify(selectedValue?.volumeInfo.imageLinks.thumbnail || {}, null, 2)}</pre>
     </div>
   );
 }
