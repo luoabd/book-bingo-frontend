@@ -123,93 +123,93 @@ function App() {
         />
 
         <Card
-          id="11"
+          id="10"
           stateChanger={setMetaData}
           metaData={metaData}
           prompt="epistolary novel"
         />
         <Card
-          id="12"
+          id="11"
           stateChanger={setMetaData}
           metaData={metaData}
           prompt="set around end of year holidays"
         />
         <Card
-          id="13"
+          id="12"
           stateChanger={setMetaData}
           metaData={metaData}
           prompt="any 2023 BOtM"
         />
         <Card
-          id="14"
+          id="13"
           stateChanger={setMetaData}
           metaData={metaData}
           prompt="elderly protagonist"
         />
         <Card
-          id="15"
+          id="14"
           stateChanger={setMetaData}
           metaData={metaData}
           prompt="about zombies"
         />
 
         <Card
-          id="16"
+          id="15"
           stateChanger={setMetaData}
           metaData={metaData}
           prompt="big cat on cover"
         />
         <Card
-          id="17"
+          id="16"
           stateChanger={setMetaData}
           metaData={metaData}
           prompt="BOtM candidate"
         />
         <Card
-          id="18"
+          id="17"
           stateChanger={setMetaData}
           metaData={metaData}
           prompt="meant for younger readers"
         />
         <Card
-          id="19"
+          id="18"
           stateChanger={setMetaData}
           metaData={metaData}
           prompt="colour in the title"
         />
         <Card
-          id="20"
+          id="19"
           stateChanger={setMetaData}
           metaData={metaData}
           prompt="from your country of origin"
         />
 
         <Card
-          id="21"
+          id="20"
           stateChanger={setMetaData}
           metaData={metaData}
           prompt="features crafting"
         />
         <Card
-          id="22"
+          id="21"
           stateChanger={setMetaData}
           metaData={metaData}
           prompt="adapted for screen"
         />
         <Card
-          id="23"
+          id="22"
           stateChanger={setMetaData}
           metaData={metaData}
           prompt="climate themes"
         />
         <Card
-          id="24"
+          id="23"
           stateChanger={setMetaData}
           metaData={metaData}
           prompt="prize winner"
         />
         <Card
-          id="25"
+          id="24"
           stateChanger={setMetaData}
           metaData={metaData}
           prompt="dystopian novel"
