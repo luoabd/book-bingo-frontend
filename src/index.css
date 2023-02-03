@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 body {
-  @apply bg-rose-300;
+  @apply bg-coolor-1
 };

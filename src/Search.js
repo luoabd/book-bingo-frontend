@@ -15,9 +15,9 @@ const IconOption = (props) => (
             : ""
         }
         style={{
-          height: "30px",
-          width: "30px",
-          borderRadius: "50%",
+          height: "40px",
+          width: "40px",
+          // borderRadius: "60%",
           marginRight: "10px",
         }}
       />
@@ -26,7 +26,7 @@ const IconOption = (props) => (
   </Option>
 );
 
-function Search({ id, metaData, stateChanger }) {
+function Search({ id, metaData, stateChanger, returnCover }) {
   const [inputValue, setValue] = useState("");
   const [selectedValue, setSelectedValue] = useState(null);
 
@@ -40,6 +40,7 @@ function Search({ id, metaData, stateChanger }) {
     setSelectedValue(value);
 
     const link = value?.volumeInfo.imageLinks.thumbnail;
+    returnCover(link);
 
     // Create a temporary copy of your items array
     const itemsCopy = metaData.slice();
@@ -72,10 +73,6 @@ function Search({ id, metaData, stateChanger }) {
         onInputChange={handleInputChange}
         onChange={handleChange}
       />
-      <pre>
-        Selected Value:{" "}
-        {JSON.stringify(selectedValue?.volumeInfo.title || {}, null, 2)}
-      </pre>
     </div>
   );
 }
