@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AsyncSelect from "react-select/async";
 import { components } from "react-select";
-
+import { config } from "./Constants";
 const { Option } = components;
 
 const IconOption = (props) => (
@@ -29,6 +29,7 @@ const IconOption = (props) => (
 function Search({ id, metaData, stateChanger, returnCover }) {
   const [inputValue, setValue] = useState("");
   const [selectedValue, setSelectedValue] = useState(null);
+  const URL = config.url;
 
   // handle input change event
   const handleInputChange = (value) => {
@@ -55,7 +56,7 @@ function Search({ id, metaData, stateChanger, returnCover }) {
 
   // load options using API call
   const loadOptions = (inputValue) => {
-    return fetch(`http://localhost:3000/api?search_q=${inputValue}}`)
+    return fetch(`${URL}/api?search_q=${inputValue}}`)
       .then((res) => res.json())
       .then((data) => data);
   };

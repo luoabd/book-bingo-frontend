@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Search from "./Search";
+import { config } from "./Constants";
 
 function Card({ stateChanger, metaData, id, prompt }) {
   // const [ title, setTitle ] = useState('')
@@ -28,8 +29,9 @@ function Card({ stateChanger, metaData, id, prompt }) {
 }
 
 function Export({ metaData }) {
+  const URL = config.url;
   const handleButton = async () => {
-    const response = await fetch(`http://localhost:3000/canvas`, {
+    const response = await fetch(`${URL}/canvas`, {
       method: "POST",
       mode: "cors",
       headers: { "Content-Type": "application/json" },
