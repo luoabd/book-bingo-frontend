@@ -126,13 +126,13 @@ function App() {
           id="6"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Mutli-generational family"
+          prompt="Multi-generational family"
         />
         <Card
           id="7"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="A book abput books"
+          prompt="A book about books"
         />
         <Card
           id="8"
