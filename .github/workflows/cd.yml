@@ -30,4 +30,4 @@ jobs:
           git status
           npm install --only=prod
           npm run build
-          npx pm2 server build/ 4005
+          npx pm2 serve build/ 4005
