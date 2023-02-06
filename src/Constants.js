@@ -1,4 +1,4 @@
-const prod_url = process.env.PROD_URL;
+const prod_url = process.env.REACT_APP_PROD_URL;
 
 const production = {
     url: prod_url
