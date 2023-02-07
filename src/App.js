@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "./Card";
-import Export from "./Export"
-import "./App.css"
+import Export from "./Export";
+import "./App.css";
 
 function App() {
   const init_board = (m) => {
@@ -25,7 +25,16 @@ function App() {
     return board_arr;
   };
 
-  const [metaData, setMetaData] = useState(init_board(25));
+  const [metaData, setMetaData] = useState(() => {
+    const saved = localStorage.getItem("data");
+    const initialValue = JSON.parse(saved);
+    return initialValue || init_board(25);
+  });
+
+  useEffect(() => {
+    localStorage.setItem('data', JSON.stringify(metaData));
+  }, [metaData]);
+
 
   return (
     <div className="container my-12 mx-auto px-4 md:px-12">

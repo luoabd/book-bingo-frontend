@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const StarRating = ({ stateChanger, metaData, id }) => {
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState(metaData[id].starRating);
   const [hover, setHover] = useState(0);
 
   const handleButton = (index) => {
