@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import Card from "./Card";
 import Export from "./Export"
+import "./App.css"
 
 function App() {
   const init_board = (m) => {
     const template = {
       id: null,
       imgLink: null,
+      starRating: 0,
       isFilled: false,
     };
 

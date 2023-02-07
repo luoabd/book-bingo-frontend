@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Search from "./Search";
+import StarRating from "./StarRating";
 
 function Card({ stateChanger, metaData, id, prompt }) {
   const [cover, setCover] = useState("https://picsum.photos/600/400/?random");
@@ -17,6 +18,9 @@ function Card({ stateChanger, metaData, id, prompt }) {
             returnCover={setCover}
             id={id}
           />
+        </div>
+        <div className={metaData[id].isFilled ? "block" : "hidden"}>
+          <StarRating id={id} metaData={metaData} stateChanger={stateChanger} />
         </div>
       </div>
     </div>
