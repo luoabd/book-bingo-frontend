@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import Export from "./Export";
+import Clear from "./Clear";
 import "./App.css";
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     const template = {
       id: null,
       imgLink: null,
+      title: null,
       starRating: 0,
       isFilled: false,
     };
@@ -32,9 +34,8 @@ function App() {
   });
 
   useEffect(() => {
-    localStorage.setItem('data', JSON.stringify(metaData));
+    localStorage.setItem("data", JSON.stringify(metaData));
   }, [metaData]);
-
 
   return (
     <div className="container my-12 mx-auto px-4 md:px-12">
@@ -197,7 +198,10 @@ function App() {
           prompt="Dystopian novel"
         />
       </div>
-      <Export metaData={metaData} />
+      <div className="flex justify-center">
+        <Export metaData={metaData} />
+        <Clear stateChanger={setMetaData} defaultBoard={init_board(25)} />
+      </div>
       <footer className="p-4 rounded-lg md:flex md:items-center justify-center md:p-6">
         <span className="text-sm sm:text-center">
           © 2023 Made with &hearts; by{" "}

@@ -48,7 +48,12 @@ function Search({ id, metaData, stateChanger, returnCover }) {
     // Find the index of the items where the item has the id you want
     const idx = itemsCopy.findIndex((x) => x.id === parseInt(id));
     // Re-assign the item to have the same values as before (name and id), but change the checked to true
-    itemsCopy[idx] = { ...itemsCopy[idx], imgLink: link, isFilled: true };
+    itemsCopy[idx] = {
+      ...itemsCopy[idx],
+      title: value?.volumeInfo.title,
+      imgLink: link,
+      isFilled: true,
+    };
 
     // Update the state with our modified copy
     stateChanger(itemsCopy);
@@ -67,7 +72,7 @@ function Search({ id, metaData, stateChanger, returnCover }) {
         components={{ Option: IconOption }}
         cacheOptions
         defaultOptions
-        value={selectedValue}
+        value={metaData[id].title ? selectedValue : ""}
         getOptionLabel={(e) => (e.volumeInfo ? e.volumeInfo.title : "")}
         getOptionValue={(e) => e.id}
         loadOptions={loadOptions}
