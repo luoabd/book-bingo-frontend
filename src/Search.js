@@ -9,11 +9,7 @@ const IconOption = (props) => (
     <div>
       {/* todo: Change from inline css */}
       <img
-        src={
-          props.data.volumeInfo.imageLinks
-            ? props.data.volumeInfo.imageLinks.smallThumbnail
-            : ""
-        }
+        src={props.data.imgLink ? props.data.imgLink : ""}
         style={{
           height: "40px",
           width: "40px",
@@ -21,7 +17,7 @@ const IconOption = (props) => (
           marginRight: "10px",
         }}
       />
-      {props.data.volumeInfo.title}
+      {props.data.title}
     </div>
   </Option>
 );
@@ -40,7 +36,8 @@ function Search({ id, metaData, stateChanger, returnCover }) {
   const handleChange = (value) => {
     setSelectedValue(value);
 
-    const link = value?.volumeInfo.imageLinks.thumbnail;
+    // const link = value?.volumeInfo.imageLinks.thumbnail;
+    const link = value?.imgLink;
     returnCover(link);
 
     // Create a temporary copy of your items array
@@ -50,7 +47,9 @@ function Search({ id, metaData, stateChanger, returnCover }) {
     // Re-assign the item to have the same values as before (name and id), but change the checked to true
     itemsCopy[idx] = {
       ...itemsCopy[idx],
-      title: value?.volumeInfo.title,
+      // title: value?.volumeInfo.title,
+      // imgLink: link,
+      title: value?.title,
       imgLink: link,
       isFilled: true,
     };
@@ -61,19 +60,25 @@ function Search({ id, metaData, stateChanger, returnCover }) {
 
   // load options using API call
   const loadOptions = (inputValue) => {
-    return fetch(`${URL}/api?search_q=${inputValue}}`)
-      .then((res) => res.json())
-      .then((data) => data);
+    async function fetchSearchResults() {
+      const response = await fetch(`${URL}/scrape?search_q=${inputValue}}`);
+      const books = await response.json();
+      let arr = Object.keys(books).map((k) => books[k]);
+      return arr;
+    }
+    return fetchSearchResults();
   };
 
   return (
     <div className="">
       <AsyncSelect
-        components={{ Option: IconOption }}
+        components={{ DropdownIndicator: null, Option: IconOption }}
         cacheOptions
-        defaultOptions
+        placeholder={"Search for a book"}
         value={metaData[id].title ? selectedValue : ""}
-        getOptionLabel={(e) => (e.volumeInfo ? e.volumeInfo.title : "")}
+        // getOptionLabel={(e) => (e.volumeInfo ? e.volumeInfo.title : "")}
+        // getOptionValue={(e) => e.id}
+        getOptionLabel={(e) => e.title}
         getOptionValue={(e) => e.id}
         loadOptions={loadOptions}
         onInputChange={handleInputChange}
