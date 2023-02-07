@@ -1,10 +1,26 @@
 import React from "react";
+import { confirmAlert } from 'react-confirm-alert';
 
 function Clear({ stateChanger, defaultBoard }) {
   const handleButton = () => {
-    localStorage.clear();
-    stateChanger(defaultBoard);
-    // window.location.reload()
+    confirmAlert({
+        // title: 'Confirm to submit',
+        message: 'Are you sure you want to clear the board?.',
+        buttons: [
+          {
+            label: 'Yes',
+            onClick: () => {
+              localStorage.clear();
+              stateChanger(defaultBoard);
+              // window.location.reload()        
+            }
+          },
+          {
+            label: 'No',
+            //onClick: () => alert('Click No')
+          }
+        ]
+      });  
   };
 
   return (
