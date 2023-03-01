@@ -5,7 +5,7 @@ import StarRating from "./StarRating";
 function Card({ stateChanger, metaData, id, prompt }) {
   const [cover, setCover] = useState(metaData[id].imgLink);
   return (
-    <div class="my-1 px-1 w-full sm:w-1/2 md:w-1/3 lg:my-5 lg:px-5 lg:w-1/5">
+    <div className="my-1 px-1 w-full sm:w-1/2 md:w-1/3 lg:my-5 lg:px-5 lg:w-1/5">
       <div className="rounded-lg shadow-lg  min-h-full bg-coolor-2 flex flex-col">
         <img
           alt="Placeholder"
