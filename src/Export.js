@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { config } from "./Constants";
 
-function Export({ metaData }) {
+function Export({ metaData, boardFile }) {
   const [isLoading, setIsLoading] = useState(false);
   const URL = config.url;
   const handleButton = async () => {
     setIsLoading(true);
-    const response = await fetch(`${URL}/canvas`, {
+    const response = await fetch(`${URL}/canvas?board=${boardFile}`, {
       method: "POST",
       mode: "cors",
       headers: { "Content-Type": "application/json" },
@@ -16,7 +16,7 @@ function Export({ metaData }) {
     let url = window.URL.createObjectURL(img);
     let a = document.createElement("a");
     a.href = url;
-    a.download = "bingo_2023.png";
+    a.download = `${boardFile}_2023.png`;
     a.click();
     setIsLoading(false);
   };

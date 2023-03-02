@@ -224,7 +224,7 @@ function FullyBooked() {
         />
       </div>
       <div className="flex justify-center">
-        <Export metaData={metaData} />
+        <Export metaData={metaData} boardFile={"fullybooked"} />
         <Clear stateChanger={setMetaData} defaultBoard={init_board(25)} />
       </div>
       <Footer />

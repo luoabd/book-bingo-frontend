@@ -49,7 +49,10 @@ function FullyBooked() {
   return (
     <div className="container my-12 mx-auto px-4 md:px-12">
       <header className="flex justify-center pb-6">
-        <h1 className="text-3xl underline font-bold"> r/Fantasy 2022 Book Bingo </h1>
+        <h1 className="text-3xl underline font-bold">
+          {" "}
+          r/Fantasy 2022 Book Bingo{" "}
+        </h1>
         <button
           className="ml-4 pl-2 bg-coolor-2 rounded-2xl"
           onClick={() => setShowInfo(!showInfo)}
@@ -223,7 +226,7 @@ function FullyBooked() {
         />
       </div>
       <div className="flex justify-center">
-        <Export metaData={metaData} />
+        <Export metaData={metaData} boardFile="rfantasy" />
         <Clear stateChanger={setMetaData} defaultBoard={init_board(25)} />
       </div>
       <footer className="p-4 rounded-lg md:flex md:items-center justify-center md:p-6">
