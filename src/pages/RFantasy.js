@@ -4,7 +4,7 @@ import Export from "../Export";
 import Clear from "../Clear";
 import Info from "../Info";
 
-function FullyBooked() {
+function RFantasy() {
   const init_board = (m) => {
     const template = {
       id: null,

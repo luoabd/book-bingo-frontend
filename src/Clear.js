@@ -1,7 +1,7 @@
 import React from "react";
 import { confirmAlert } from 'react-confirm-alert';
 
-function Clear({ stateChanger, defaultBoard }) {
+function Clear({ stateChanger, defaultBoard, boardFile }) {
   const handleButton = () => {
     confirmAlert({
         // title: 'Confirm to submit',
@@ -10,7 +10,7 @@ function Clear({ stateChanger, defaultBoard }) {
           {
             label: 'Yes',
             onClick: () => {
-              localStorage.clear();
+              localStorage.removeItem(boardFile);
               stateChanger(defaultBoard);
               // window.location.reload()        
             }
