@@ -29,10 +29,10 @@ function Card({ stateChanger, metaData, id, prompt }) {
           />
         </div>
         <div className={metaData[id].isFilled && ('hardMode' in metaData[id])? "block" : "hidden"}>
-          <HardMode id ={id} metaData={metaData} stateChanger={stateChanger} />
+        <StarRating id={id} metaData={metaData} stateChanger={stateChanger} />
         </div>
         <div className={metaData[id].isFilled ? "block" : "hidden"}>
-          <StarRating id={id} metaData={metaData} stateChanger={stateChanger} />
+          <HardMode id ={id} metaData={metaData} stateChanger={stateChanger} />
         </div>
       </div>
     </div>
