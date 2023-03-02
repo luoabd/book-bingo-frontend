@@ -3,6 +3,7 @@ import Card from "../Card";
 import Export from "../Export";
 import Clear from "../Clear";
 import Info from "../Info";
+import Footer from "../Footer";
 
 function RFantasy() {
   const init_board = (m) => {
@@ -228,16 +229,13 @@ function RFantasy() {
       </div>
       <div className="flex justify-center">
         <Export metaData={metaData} boardFile="rfantasy" />
-        <Clear stateChanger={setMetaData} defaultBoard={init_board(25)} clearData="rfantasy_data"/>
+        <Clear
+          stateChanger={setMetaData}
+          defaultBoard={init_board(25)}
+          clearData="rfantasy_data"
+        />
       </div>
-      <footer className="p-4 rounded-lg md:flex md:items-center justify-center md:p-6">
-        <span className="text-sm sm:text-center">
-          © 2023 Made with &hearts; by{" "}
-          <a href="https://github.com/luoabd/" class="hover:underline">
-            luoabd.
-          </a>
-        </span>
-      </footer>
+      <Footer extra={true} />
     </div>
   );
 }

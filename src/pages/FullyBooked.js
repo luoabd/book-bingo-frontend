@@ -227,7 +227,7 @@ function FullyBooked() {
         <Export metaData={metaData} boardFile={"fullybooked"} />
         <Clear stateChanger={setMetaData} defaultBoard={init_board(25)} clearData="data"/>
       </div>
-      <Footer />
+      <Footer extra={false} />
     </div>
   );
 }
