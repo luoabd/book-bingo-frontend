@@ -11,6 +11,7 @@ function RFantasy() {
       imgLink: null,
       title: null,
       starRating: 0,
+      hardMode: false,
       isFilled: false,
     };
 
@@ -227,7 +228,7 @@ function RFantasy() {
       </div>
       <div className="flex justify-center">
         <Export metaData={metaData} boardFile="rfantasy" />
-        <Clear stateChanger={setMetaData} defaultBoard={init_board(25)} />
+        <Clear stateChanger={setMetaData} defaultBoard={init_board(25)} clearData="rfantasy_data"/>
       </div>
       <footer className="p-4 rounded-lg md:flex md:items-center justify-center md:p-6">
         <span className="text-sm sm:text-center">
@@ -241,4 +242,4 @@ function RFantasy() {
   );
 }
 
-export default FullyBooked;
+export default RFantasy;

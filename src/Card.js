@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Search from "./Search";
 import StarRating from "./StarRating";
+import HardMode from "./HardMode";
 
 function Card({ stateChanger, metaData, id, prompt }) {
   const [cover, setCover] = useState(metaData[id].imgLink);
@@ -26,6 +27,9 @@ function Card({ stateChanger, metaData, id, prompt }) {
             returnCover={setCover}
             id={id}
           />
+        </div>
+        <div className={metaData[id].isFilled && ('hardMode' in metaData[id])? "block" : "hidden"}>
+          <HardMode id ={id} metaData={metaData} stateChanger={stateChanger} />
         </div>
         <div className={metaData[id].isFilled ? "block" : "hidden"}>
           <StarRating id={id} metaData={metaData} stateChanger={stateChanger} />
