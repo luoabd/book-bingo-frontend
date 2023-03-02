@@ -28,13 +28,13 @@ function FullyBooked() {
   };
 
   const [metaData, setMetaData] = useState(() => {
-    const saved = localStorage.getItem("data");
+    const saved = localStorage.getItem("rfantasy_data");
     const initialValue = JSON.parse(saved);
     return initialValue || init_board(25);
   });
 
   useEffect(() => {
-    localStorage.setItem("data", JSON.stringify(metaData));
+    localStorage.setItem("rfantasy_data", JSON.stringify(metaData));
   }, [metaData]);
 
   const [showInfo, setShowInfo] = useState(() => {
