@@ -1,3 +1,17 @@
+# Book Bingo Maker 
+This project is a bingo maker for the FullyBooked club as well as reddit's r/Fantasy bingo reading challenges.
+
+To learn more about the r/fantasy challenge visit the [announcement post](https://www.reddit.com/r/Fantasy/comments/ttrev1/official_rfantasy_2022_book_bingo_challenge/)
+
+This project is live at https://bingo.luoabd.nl/
+
+## Technologies Used
+
+This app is created with the following technologies:
+- React version: 18.2.0 --- Bootstrapped with [Create React App](#learn-more-about-create-react-app)
+- React-router-dom version: 6.8.1
+- TailwindCSS version: 3.2.4 as a CSS framwork
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
