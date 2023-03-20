@@ -5,9 +5,41 @@ import HardMode from "./HardMode";
 
 function Card({ stateChanger, metaData, id, prompt }) {
   const [cover, setCover] = useState(metaData[id].imgLink);
+
+  // TODO: Reset the starrating and hardmode
+  const removeBook = () => {
+    // localStorage.removeItem(boardFile);
+
+    // Create a temporary copy of your items array
+    const itemsCopy = metaData.slice();
+    // Find the index of the items where the item has the id you want
+    const idx = itemsCopy.findIndex((x) => x.id === parseInt(id));
+    // Re-assign the item to have the same values as before (name and id), but change the checked to true
+    itemsCopy[idx] = {
+      ...itemsCopy[idx],
+      imgLink: null,
+      title: null,
+      starRating: 0,
+      // hardMode: false,
+      isFilled: null,
+    };
+    
+    // Update the state with our modified copy
+    stateChanger(itemsCopy);
+  };
+
   return (
     <div className="my-1 px-1 w-full sm:w-1/2 md:w-1/3 lg:my-5 lg:px-5 lg:w-1/5">
       <div className="rounded-lg shadow-lg  min-h-full bg-coolor-2 flex flex-col">
+        <div className={metaData[id].isFilled ? "block" : "hidden"}>
+          <button
+            className="absolute top-auto bg-coolor-2 text-black hover:font-bold m-2 items-center justify-center rounded-full h-6 w-6"
+            onClick={removeBook}
+          >
+            &times;
+          </button>
+        </div>
+
         <img
           alt="Placeholder"
           class="block h-auto w-full"
@@ -17,6 +49,7 @@ function Card({ stateChanger, metaData, id, prompt }) {
               : "https://picsum.photos/600/400/?random"
           }
         />
+
         <header className="h-32  items-center justify-between leading-tight p-2 md:p-4 text-center">
           <h1 className="text-lg text-center">{prompt}</h1>
         </header>
