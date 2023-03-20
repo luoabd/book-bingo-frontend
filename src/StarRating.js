@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 
-const StarRating = ({ stateChanger, metaData, id }) => {
-  const [rating, setRating] = useState(metaData[id].starRating);
+const StarRating = ({ stateChanger, metaData, id, rating }) => {
   const [hover, setHover] = useState(0);
 
   const handleButton = (index) => {
-    setRating(index);
-
     // Create a temporary copy of your items array
     const itemsCopy = metaData.slice();
     // Find the index of the items where the item has the id you want

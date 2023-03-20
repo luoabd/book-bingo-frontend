@@ -6,7 +6,6 @@ import HardMode from "./HardMode";
 function Card({ stateChanger, metaData, id, prompt }) {
   const [cover, setCover] = useState(metaData[id].imgLink);
 
-  // TODO: Reset the starrating and hardmode
   const removeBook = () => {
     // localStorage.removeItem(boardFile);
 
@@ -68,7 +67,12 @@ function Card({ stateChanger, metaData, id, prompt }) {
           />
         </div>
         <div className={metaData[id].isFilled ? "block" : "hidden"}>
-          <StarRating id={id} metaData={metaData} stateChanger={stateChanger} />
+          <StarRating
+            id={id}
+            metaData={metaData}
+            stateChanger={stateChanger}
+            rating={metaData[id].starRating}
+          />
         </div>
         <div
           className={
