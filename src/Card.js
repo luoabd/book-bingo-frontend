@@ -20,10 +20,16 @@ function Card({ stateChanger, metaData, id, prompt }) {
       imgLink: null,
       title: null,
       starRating: 0,
-      // hardMode: false,
       isFilled: null,
     };
-    
+
+    if ("hardMode" in metaData[id]) {
+      itemsCopy[idx] = {
+        ...itemsCopy[idx],
+        hardMode: false,
+      };
+    }
+
     // Update the state with our modified copy
     stateChanger(itemsCopy);
   };
@@ -71,7 +77,12 @@ function Card({ stateChanger, metaData, id, prompt }) {
               : "hidden"
           }
         >
-          <HardMode id={id} metaData={metaData} stateChanger={stateChanger} />
+          <HardMode
+            id={id}
+            metaData={metaData}
+            stateChanger={stateChanger}
+            hm={metaData[id].hardMode}
+          />
         </div>
       </div>
     </div>
