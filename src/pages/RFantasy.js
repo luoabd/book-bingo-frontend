@@ -30,13 +30,13 @@ function RFantasy() {
   };
 
   const [metaData, setMetaData] = useState(() => {
-    const saved = localStorage.getItem("rfantasy_data");
+    const saved = localStorage.getItem("rfantasy23_data");
     const initialValue = JSON.parse(saved);
     return initialValue || init_board(25);
   });
 
   useEffect(() => {
-    localStorage.setItem("rfantasy_data", JSON.stringify(metaData));
+    localStorage.setItem("rfantasy23_data", JSON.stringify(metaData));
   }, [metaData]);
 
   const [showInfo, setShowInfo] = useState(() => {
@@ -53,7 +53,7 @@ function RFantasy() {
       <header className="flex justify-center pb-6">
         <h1 className="text-3xl underline font-bold">
           {" "}
-          r/Fantasy 2022 Book Bingo{" "}
+          r/Fantasy 2023 Book Bingo{" "}
         </h1>
         <button
           className="ml-4 pl-2 bg-coolor-2 rounded-2xl"
@@ -76,155 +76,155 @@ function RFantasy() {
           stateChanger={setMetaData}
           metaData={metaData}
           id="0"
-          prompt="LGBTQIA List Book"
+          prompt="Title with a Title"
         />
         <Card
           id="1"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Weird Ecology"
+          prompt="Superheroes"
         />
         <Card
           id="2"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Two or More Authors"
+          prompt="Bottom of the TBR"
         />
         <Card
           id="3"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Historical SFF"
+          prompt="Magical Realism"
         />
         <Card
           id="4"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Set in Space"
+          prompt="Young Adult"
         />
 
         <Card
           id="5"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Standalone"
+          prompt="Mundane Jobs"
         />
         <Card
           id="6"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Anti-hero"
+          prompt="Published in the 00s"
         />
         <Card
           id="7"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Book Club or Readalong book"
+          prompt="Angels and Demons"
         />
         <Card
           id="8"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Cool Weapon"
+          prompt="Five SFF Short Stories"
         />
         <Card
           id="9"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Revolutions and Rebellions"
+          prompt="Horror"
         />
 
         <Card
           id="10"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Name in the Title"
+          prompt="Self-Published OR Indie Publisher"
         />
         <Card
           id="11"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Author uses initials"
+          prompt="Set in the Middle East"
         />
         <Card
           id="12"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Published in 2022"
+          prompt="Published in 2023"
         />
         <Card
           id="13"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Urban Fantasy"
+          prompt="Multiverses"
         />
         <Card
           id="14"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Set in Africa"
+          prompt="POC Author"
         />
 
         <Card
           id="15"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Non-Human Protagonist"
+          prompt="Book Club OR Readalong Book"
         />
         <Card
           id="16"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Wibbly Wobbly Timey Wimey"
+          prompt="Novella"
         />
         <Card
           id="17"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Five Short Stories"
+          prompt="Mythical Beasts"
         />
         <Card
           id="18"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Mental Health"
+          prompt="Elemental Magic"
         />
         <Card
           id="19"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Self Published"
+          prompt="Myths and Retellings"
         />
 
         <Card
           id="20"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Award Finalist"
+          prompt="Queernorm Setting"
         />
         <Card
           id="21"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="BIPOC Author"
+          prompt="Coastal Setting"
         />
         <Card
           id="22"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Shapeshifters"
+          prompt="Druids"
         />
         <Card
           id="23"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="No Ifs, Ands or Buts"
+          prompt="Featuring Robots"
         />
         <Card
           id="24"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Family Matters"
+          prompt="Sequel"
         />
       </div>
       <div className="flex justify-center">
@@ -232,7 +232,7 @@ function RFantasy() {
         <Clear
           stateChanger={setMetaData}
           defaultBoard={init_board(25)}
-          clearData="rfantasy_data"
+          clearData="rfantasy23_data"
         />
       </div>
       <Footer extra={true} />
