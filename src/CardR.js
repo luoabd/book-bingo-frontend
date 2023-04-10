@@ -42,8 +42,9 @@ function CardR({ stateChanger, metaData, id }) {
   };
 
   const acceptPrompt = () => {
+    const newPrompt = ref.current.innerText;
     setisUpdating(false);
-    setPrompt(ref.current.innerHTML);
+    setPrompt(newPrompt);
 
     // Create a temporary copy of your items array
     const itemsCopy = metaData.slice();
@@ -52,12 +53,11 @@ function CardR({ stateChanger, metaData, id }) {
     // Re-assign the item to have the same values as before (name and id), but change the checked to true
     itemsCopy[idx] = {
       ...itemsCopy[idx],
-      prompt: ref.current.innerHTML,
+      prompt: newPrompt,
     };
 
     // Update the state with our modified copy
     stateChanger(itemsCopy);
-
   };
 
   return (
