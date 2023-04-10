@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Card from "../Card";
+import CardR from "../CardR";
 import Export from "../Export";
 import Clear from "../Clear";
 import Info from "../Info";
@@ -14,6 +14,7 @@ function RFantasy() {
       starRating: 0,
       hardMode: false,
       isFilled: false,
+      prompt: null,
     };
 
     // Use stringify and parse to copy the values instead of referencing them
@@ -22,9 +23,37 @@ function RFantasy() {
         .fill(0)
         .map((x) => JSON.parse(JSON.stringify(template))),
     ];
+    const promptList = [
+      "Title With a Title",
+      "Superheroes",
+      "Bottom of the TBR",
+      "Magical Realism or Literary Fantasy",
+      "Young Adult",
+      "Mundane Jobs",
+      "Published in the 00s",
+      "Angels and Demons",
+      "Five Short Stories",
+      "Horror",
+      "Self-Published or Indie Publisher",
+      "Set in the Middle East/Middle Eastern SFF",
+      "Published in 2023",
+      "Multiverse and Alternate Realities",
+      "POC Author",
+      "Book Club or Readalong Book",
+      "Novella",
+      "Mythical Beasts",
+      "Elemental Magic",
+      "Myths and Retellings",
+      "Queernorm Setting",
+      "Coastal or Island Setting",
+      "Druid",
+      "Features Robots",
+      "Sequel",
+    ];
 
     for (let i = 0; i < m; i++) {
       board_arr[i]["id"] = i;
+      board_arr[i]["prompt"] = promptList[i];
     }
     return board_arr;
   };
@@ -72,159 +101,134 @@ function RFantasy() {
         <Info />
       </div>
       <div class="flex flex-wrap -mx-1 lg:-mx-4">
-        <Card
+        <CardR
           stateChanger={setMetaData}
           metaData={metaData}
           id="0"
-          prompt="LGBTQIA List Book"
         />
-        <Card
+        <CardR
           id="1"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Weird Ecology"
         />
-        <Card
+        <CardR
           id="2"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Two or More Authors"
         />
-        <Card
+        <CardR
           id="3"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Historical SFF"
         />
-        <Card
+        <CardR
           id="4"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Set in Space"
         />
 
-        <Card
+        <CardR
           id="5"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Standalone"
         />
-        <Card
+        <CardR
           id="6"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Anti-hero"
         />
-        <Card
+        <CardR
           id="7"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Book Club or Readalong book"
         />
-        <Card
+        <CardR
           id="8"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Cool Weapon"
         />
-        <Card
+        <CardR
           id="9"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Revolutions and Rebellions"
         />
 
-        <Card
+        <CardR
           id="10"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Name in the Title"
         />
-        <Card
+        <CardR
           id="11"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Author uses initials"
         />
-        <Card
+        <CardR
           id="12"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Published in 2022"
         />
-        <Card
+        <CardR
           id="13"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Urban Fantasy"
         />
-        <Card
+        <CardR
           id="14"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Set in Africa"
         />
 
-        <Card
+        <CardR
           id="15"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Non-Human Protagonist"
         />
-        <Card
+        <CardR
           id="16"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Wibbly Wobbly Timey Wimey"
         />
-        <Card
+        <CardR
           id="17"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Five Short Stories"
         />
-        <Card
+        <CardR
           id="18"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Mental Health"
         />
-        <Card
+        <CardR
           id="19"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Self Published"
         />
 
-        <Card
+        <CardR
           id="20"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Award Finalist"
         />
-        <Card
+        <CardR
           id="21"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="BIPOC Author"
         />
-        <Card
+        <CardR
           id="22"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Shapeshifters"
         />
-        <Card
+        <CardR
           id="23"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="No Ifs, Ands or Buts"
         />
-        <Card
+        <CardR
           id="24"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Family Matters"
         />
       </div>
       <div className="flex justify-center">
