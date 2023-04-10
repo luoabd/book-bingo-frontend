@@ -7,8 +7,6 @@ function Card({ stateChanger, metaData, id, prompt }) {
   const [cover, setCover] = useState(metaData[id].imgLink);
 
   const removeBook = () => {
-    // localStorage.removeItem(boardFile);
-
     // Create a temporary copy of your items array
     const itemsCopy = metaData.slice();
     // Find the index of the items where the item has the id you want
