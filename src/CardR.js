@@ -3,9 +3,9 @@ import Search from "./Search";
 import StarRating from "./StarRating";
 import HardMode from "./HardMode";
 
-function CardR({ stateChanger, metaData, id }) {
+function CardR({ stateChanger, metaData, id, defaultPrompt }) {
   const [cover, setCover] = useState(metaData[id].imgLink);
-  const [prompt, setPrompt] = useState(metaData[id].prompt);
+  const [prompt, setPrompt] = useState(metaData[id].prompt || defaultPrompt);
   const [isUpdating, setisUpdating] = useState(false);
   const ref = useRef(null);
 
