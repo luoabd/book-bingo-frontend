@@ -16,7 +16,7 @@ function Export({ metaData, boardFile }) {
     let url = window.URL.createObjectURL(img);
     let a = document.createElement("a");
     a.href = url;
-    a.download = `${boardFile}_2023.png`;
+    a.download = `${boardFile}.png`;
     a.click();
     setIsLoading(false);
   };
