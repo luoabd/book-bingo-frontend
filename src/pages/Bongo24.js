@@ -5,7 +5,7 @@ import Clear from "../Clear";
 import Info from "../Info";
 import Footer from "../Footer";
 
-function FullyBooked() {
+function Bongo24() {
   const init_board = (m) => {
     const template = {
       id: null,
@@ -29,13 +29,13 @@ function FullyBooked() {
   };
 
   const [metaData, setMetaData] = useState(() => {
-    const saved = localStorage.getItem("data");
+    const saved = localStorage.getItem("bongo24_data");
     const initialValue = JSON.parse(saved);
     return initialValue || init_board(25);
   });
 
   useEffect(() => {
-    localStorage.setItem("data", JSON.stringify(metaData));
+    localStorage.setItem("bongo24_data", JSON.stringify(metaData));
   }, [metaData]);
 
   const [showInfo, setShowInfo] = useState(() => {
@@ -50,7 +50,7 @@ function FullyBooked() {
   return (
     <div className="container my-12 mx-auto px-4 md:px-12">
       <header className="flex justify-center pb-6">
-        <h1 className="text-3xl underline font-bold"> Book Bingo 2023 </h1>
+        <h1 className="text-3xl underline font-bold"> Chaos Bongo </h1>
         <button
           className="ml-4 pl-2 bg-coolor-2 rounded-2xl"
           onClick={() => setShowInfo(!showInfo)}
@@ -72,164 +72,164 @@ function FullyBooked() {
           stateChanger={setMetaData}
           metaData={metaData}
           id="0"
-          prompt="About Vampires"
+          prompt="Read in the bath"
         />
         <Card
           id="1"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Title begins with the first letter of your name"
+          prompt="Hooves"
         />
         <Card
           id="2"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Oldest addition to TBR"
+          prompt="Ugly cry"
         />
         <Card
           id="3"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Set in forest or desert"
+          prompt="A river enchanted / Learn Estonian"
         />
         <Card
           id="4"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Buddy read"
+          prompt="As complicated as Shadow of the Torturer"
         />
 
         <Card
           id="5"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Set in school or uni"
+          prompt="Someone who loves cats"
         />
         <Card
           id="6"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Multi-generational family"
+          prompt="Bannable"
         />
         <Card
           id="7"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="A book about books"
+          prompt="Features rollercoasters"
         />
         <Card
           id="8"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Memoir"
+          prompt="Mistake buddy read / Wrong assumption"
         />
         <Card
           id="9"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Villain's perspective"
+          prompt="X-Files"
         />
 
         <Card
           id="10"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Epistolary novel"
+          prompt="Hot fan art / Cool cover"
         />
         <Card
           id="11"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Set around end of year holidays"
+          prompt="Skills for book commune"
         />
         <Card
           id="12"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Any 2023 BOTM"
+          prompt="Any 2024 BOTM you finished within 24hrs of the chat"
         />
         <Card
           id="13"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Elderly protagonist"
+          prompt="When women were dragons"
         />
         <Card
           id="14"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="About zombies"
+          prompt="Oldest current-read"
         />
 
         <Card
           id="15"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Big cat on cover"
+          prompt="Confusing romance plot"
         />
         <Card
           id="16"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="BOTM candidate"
+          prompt="Saves you from being haunted"
         />
         <Card
           id="17"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Meant for younger readers"
+          prompt="Very long series"
         />
         <Card
           id="18"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Colour in the title"
+          prompt="Starts with 'P' and has Mosscap"
         />
         <Card
           id="19"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="From your country of origin"
+          prompt="Multiple club members won't shut up about"
         />
 
         <Card
           id="20"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Features crafting"
+          prompt="Song of Achilles"
         />
         <Card
           id="21"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Adapted for screen"
+          prompt="Associated with other club members"
         />
         <Card
           id="22"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Climate themes"
+          prompt="New author who's another member's favorite"
         />
         <Card
           id="23"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Prize winner"
+          prompt="Comfort book that's not comfy at all"
         />
         <Card
           id="24"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Dystopian novel"
+          prompt="Known for starting fights"
         />
       </div>
       <div className="flex justify-center">
-        <Export metaData={metaData} boardFile={"fullybooked"} />
-        <Clear stateChanger={setMetaData} defaultBoard={init_board(25)} clearData="data"/>
+        <Export metaData={metaData} boardFile={"bongo24"} />
+        <Clear stateChanger={setMetaData} defaultBoard={init_board(25)} clearData="bongo24_data"/>
       </div>
       <Footer extra={false} />
     </div>
   );
 }
 
-export default FullyBooked;
+export default Bongo24;

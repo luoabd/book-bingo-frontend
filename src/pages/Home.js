@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Footer from "../Footer";
 
 function Home() {
@@ -10,10 +10,10 @@ function Home() {
       </header>
       <div className="flex flex-wrap items-center justify-center">
           <button className="bg-coolor-2 w-full lg:w-1/3 text-black font-bold py-2 px-4 rounded-lg align-center mx-4 mb-4">
-            <Link to="/fullybooked">Fully Booked 2023</Link>
+            <Link to="/fullybooked24">Fully Booked 2024</Link>
           </button>
           <button className="bg-coolor-2 w-full lg:w-1/3 text-black font-bold py-2 px-4 rounded-lg align-center mx-4 mb-4">
-            <Link to="/fullybooked24">Fully Booked 2024</Link>
+            <Link to="/bongo24">Chaos Bongo</Link>
           </button>
           <button className="bg-coolor-2 w-full lg:w-1/3 text-black font-bold py-2 px-4 rounded-lg align-center mx-4 mb-4">
             <Link to="/rfantasy">r/Fantasy 2023 Book Bingo</Link>
