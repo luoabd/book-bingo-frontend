@@ -50,6 +50,7 @@ function Search({ id, metaData, stateChanger, returnCover }) {
       // title: value?.volumeInfo.title,
       // imgLink: link,
       title: value?.title,
+      author: value?.author,
       imgLink: link,
       isFilled: true,
     };

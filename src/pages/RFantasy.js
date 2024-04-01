@@ -40,6 +40,7 @@ function RFantasy() {
       id: null,
       imgLink: null,
       title: null,
+      author: null,
       starRating: 0,
       hardMode: false,
       isFilled: false,
