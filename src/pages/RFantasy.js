@@ -4,6 +4,7 @@ import Export from "../Export";
 import Clear from "../Clear";
 import Info from "../Info";
 import Footer from "../Footer";
+import Modal from "../Modal";
 
 const promptList = [
   "First in a Series",
@@ -47,7 +48,7 @@ function RFantasy() {
 
     // Use stringify and parse to copy the values instead of referencing them
     let board_arr = [
-      ...Array(m)
+      ...Array(m+4)
         .fill(0)
         .map((x) => JSON.parse(JSON.stringify(template))),
     ];
@@ -56,6 +57,11 @@ function RFantasy() {
       board_arr[i]["id"] = i;
       board_arr[i]["prompt"] = promptList[i];
     }
+    for (let j = 1; j < 5; j++) {
+      board_arr[m+j-1]["id"] = m + j - 1;
+      board_arr[m+j-1]["prompt"] = "Short Story " + (j+1);
+    }
+
     return board_arr;
   };
 
@@ -78,6 +84,11 @@ function RFantasy() {
     localStorage.setItem("info", JSON.stringify(showInfo));
   }, [showInfo]);
 
+  const [showModal, setShowModal] = useState(false);
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+
   return (
     <div className="container my-12 mx-auto px-4 md:px-12">
       <header className="flex justify-center pb-6">
@@ -99,9 +110,9 @@ function RFantasy() {
         </button>
       </header>
       <div className={showInfo ? "hidden" : "block"}>
-        <Info />
+        <Info includesShortStory={true} />
       </div>
-      <div class="flex flex-wrap -mx-1 lg:-mx-4">
+      <div className="flex flex-wrap -mx-1 lg:-mx-4">
         <CardR
           stateChanger={setMetaData}
           metaData={metaData}
@@ -237,6 +248,8 @@ function RFantasy() {
           stateChanger={setMetaData}
           metaData={metaData}
           defaultPrompt={promptList[21]}
+          shortStories={true}
+          modalButton={toggleModal}
         />
         <CardR
           id="22"
@@ -257,6 +270,15 @@ function RFantasy() {
           defaultPrompt={promptList[24]}
         />
       </div>
+      <div>
+        <Modal
+          stateChanger={setMetaData}
+          showModal={showModal}
+          metaData={metaData}
+          setShowModal={setShowModal}
+        />
+      </div>
+
       <div className="flex justify-center">
         <Export metaData={metaData} boardFile="rfantasy" />
         <Clear

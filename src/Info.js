@@ -1,6 +1,6 @@
 import React from "react";
 
-function Info() {
+function Info({ includesShortStory }) {
   return (
     <div
       className="flex items-center bg-coolor-2 text-black text-sm font-bold px-4 py-3 rounded"
@@ -17,6 +17,11 @@ function Info() {
         <li>You can search using a book title or author name.</li>
         <li>
           You can give a rating to each book added (or leave the ratings empty)
+        </li>
+        <li className={includesShortStory ? "block" : "hidden"}>
+          For short stories, you can use use the drop down button to include 4 more
+          cards. These cards will only show up as a title and author at the
+          bottom of the bingo board.
         </li>
         <li>
           This tracker utilizes the storage on your browser, so you'll want to
