@@ -5,6 +5,34 @@ import Clear from "../Clear";
 import Info from "../Info";
 import Footer from "../Footer";
 
+const promptList = [
+  "First in a Series",
+  "Alliterative Title",
+  "Under the Surface",
+  "Criminals",
+  "Dreams",
+  "Entitled Animals",
+  "Bards",
+  "Prologues and Epilogues",
+  "Self Published / Indie",
+  "Romantasy",
+  "Dark Academia",
+  "Multi POV",
+  "Published in 2024",
+  "Character with a Disability",
+  "Published in the 90s",
+  "Orcs, Trolls and Goblins",
+  "Space Opera",
+  "Author of Color",
+  "Survival",
+  "Judge a Book by its Cover",
+  "Set in a Small Town",
+  "Five Short Stories",
+  "Eldritch Creatures",
+  "Reference Materials",
+  "Book Club or Readalong",
+];
+
 function RFantasy() {
   const init_board = (m) => {
     const template = {
@@ -23,33 +51,6 @@ function RFantasy() {
         .fill(0)
         .map((x) => JSON.parse(JSON.stringify(template))),
     ];
-    const promptList = [
-      "Title With a Title",
-      "Superheroes",
-      "Bottom of the TBR",
-      "Magical Realism",
-      "Young Adult",
-      "Mundane Jobs",
-      "Published in the 00s",
-      "Angels and Demons",
-      "Short Stories",
-      "Horror",
-      "Self Published",
-      "Middle East",
-      "Published in 2023",
-      "Multiverse",
-      "POC Author",
-      "Book Club",
-      "Novella",
-      "Mythical Beasts",
-      "Elemental Magic",
-      "Myths and Retellings",
-      "Queernorm",
-      "Coastal/Island",
-      "Druids",
-      "Robots",
-      "Sequel",
-    ];
 
     for (let i = 0; i < m; i++) {
       board_arr[i]["id"] = i;
@@ -59,13 +60,13 @@ function RFantasy() {
   };
 
   const [metaData, setMetaData] = useState(() => {
-    const saved = localStorage.getItem("rfantasy23_data");
+    const saved = localStorage.getItem("rfantasy24_data");
     const initialValue = JSON.parse(saved);
     return initialValue || init_board(25);
   });
 
   useEffect(() => {
-    localStorage.setItem("rfantasy23_data", JSON.stringify(metaData));
+    localStorage.setItem("rfantasy24_data", JSON.stringify(metaData));
   }, [metaData]);
 
   const [showInfo, setShowInfo] = useState(() => {
@@ -82,7 +83,7 @@ function RFantasy() {
       <header className="flex justify-center pb-6">
         <h1 className="text-3xl underline font-bold">
           {" "}
-          r/Fantasy 2023 Book Bingo{" "}
+          r/Fantasy 2024 Book Bingo{" "}
         </h1>
         <button
           className="ml-4 pl-2 bg-coolor-2 rounded-2xl"
@@ -105,155 +106,155 @@ function RFantasy() {
           stateChanger={setMetaData}
           metaData={metaData}
           id="0"
-          defaultPrompt="Title With a Title"
+          defaultPrompt={promptList[0]}
         />
         <CardR
           id="1"
           stateChanger={setMetaData}
           metaData={metaData}
-          defaultPrompt="Superheroes"
+          defaultPrompt={promptList[1]}
         />
         <CardR
           id="2"
           stateChanger={setMetaData}
           metaData={metaData}
-          defaultPrompt="Bottom of the TBR"
+          defaultPrompt={promptList[2]}
         />
         <CardR
           id="3"
           stateChanger={setMetaData}
           metaData={metaData}
-          defaultPrompt="Magical Realism"
+          defaultPrompt={promptList[3]}
         />
         <CardR
           id="4"
           stateChanger={setMetaData}
           metaData={metaData}
-          defaultPrompt="Young Adult"
+          defaultPrompt={promptList[4]}
         />
 
         <CardR
           id="5"
           stateChanger={setMetaData}
           metaData={metaData}
-          defaultPrompt="Mundane Jobs"
+          defaultPrompt={promptList[5]}
         />
         <CardR
           id="6"
           stateChanger={setMetaData}
           metaData={metaData}
-          defaultPrompt="Published in the 00s"
+          defaultPrompt={promptList[6]}
         />
         <CardR
           id="7"
           stateChanger={setMetaData}
           metaData={metaData}
-          defaultPrompt="Angels and Demons"
+          defaultPrompt={promptList[7]}
         />
         <CardR
           id="8"
           stateChanger={setMetaData}
           metaData={metaData}
-          defaultPrompt="Short Stories"
+          defaultPrompt={promptList[8]}
         />
         <CardR
           id="9"
           stateChanger={setMetaData}
           metaData={metaData}
-          defaultPrompt="Horror"
+          defaultPrompt={promptList[9]}
         />
 
         <CardR
           id="10"
           stateChanger={setMetaData}
           metaData={metaData}
-          defaultPrompt="Self Published"
+          defaultPrompt={promptList[10]}
         />
         <CardR
           id="11"
           stateChanger={setMetaData}
           metaData={metaData}
-          defaultPrompt="Middle East"
+          defaultPrompt={promptList[11]}
         />
         <CardR
           id="12"
           stateChanger={setMetaData}
           metaData={metaData}
-          defaultPrompt="Published in 2023"
+          defaultPrompt={promptList[12]}
         />
         <CardR
           id="13"
           stateChanger={setMetaData}
           metaData={metaData}
-          defaultPrompt="Multiverse"
+          defaultPrompt={promptList[13]}
         />
         <CardR
           id="14"
           stateChanger={setMetaData}
           metaData={metaData}
-          defaultPrompt="POC Author"
+          defaultPrompt={promptList[14]}
         />
 
         <CardR
           id="15"
           stateChanger={setMetaData}
           metaData={metaData}
-          defaultPrompt="Book Club"
+          defaultPrompt={promptList[15]}
         />
         <CardR
           id="16"
           stateChanger={setMetaData}
           metaData={metaData}
-          defaultPrompt="Novella"
+          defaultPrompt={promptList[16]}
         />
         <CardR
           id="17"
           stateChanger={setMetaData}
           metaData={metaData}
-          defaultPrompt="Mythical "
+          defaultPrompt={promptList[17]}
         />
         <CardR
           id="18"
           stateChanger={setMetaData}
           metaData={metaData}
-          defaultPrompt="Elemental Magic"
+          defaultPrompt={promptList[18]}
         />
         <CardR
           id="19"
           stateChanger={setMetaData}
           metaData={metaData}
-          defaultPrompt="Myths and Retellings"
+          defaultPrompt={promptList[19]}
         />
 
         <CardR
           id="20"
           stateChanger={setMetaData}
           metaData={metaData}
-          defaultPrompt="Queernorm"
+          defaultPrompt={promptList[20]}
         />
         <CardR
           id="21"
           stateChanger={setMetaData}
           metaData={metaData}
-          defaultPrompt="Coastal/Island"
+          defaultPrompt={promptList[21]}
         />
         <CardR
           id="22"
           stateChanger={setMetaData}
           metaData={metaData}
-          defaultPrompt="Druids"
+          defaultPrompt={promptList[22]}
         />
         <CardR
           id="23"
           stateChanger={setMetaData}
           metaData={metaData}
-          defaultPrompt="Robots"
+          defaultPrompt={promptList[23]}
         />
         <CardR
           id="24"
           stateChanger={setMetaData}
           metaData={metaData}
-          defaultPrompt="Sequel"
+          defaultPrompt={promptList[24]}
         />
       </div>
       <div className="flex justify-center">
@@ -261,7 +262,7 @@ function RFantasy() {
         <Clear
           stateChanger={setMetaData}
           defaultBoard={init_board(25)}
-          clearData="rfantasy23_data"
+          clearData="rfantasy24_data"
         />
       </div>
       <Footer extra={true} />
