@@ -3,7 +3,14 @@ import Search from "./Search";
 import StarRating from "./StarRating";
 import HardMode from "./HardMode";
 
-function CardR({ stateChanger, metaData, id, defaultPrompt }) {
+function CardR({
+  stateChanger,
+  metaData,
+  id,
+  defaultPrompt,
+  shortStories = false,
+  modalButton,
+}) {
   const [cover, setCover] = useState(metaData[id].imgLink);
   const [prompt, setPrompt] = useState(metaData[id].prompt || defaultPrompt);
   const [isUpdating, setisUpdating] = useState(false);
@@ -74,7 +81,7 @@ function CardR({ stateChanger, metaData, id, defaultPrompt }) {
 
         <img
           alt="Placeholder"
-          class="block h-auto w-full"
+          className="block h-auto w-full"
           src={
             metaData[id].imgLink
               ? cover
@@ -123,6 +130,25 @@ function CardR({ stateChanger, metaData, id, defaultPrompt }) {
           >
             {prompt}
           </h1>
+          <button
+            className={shortStories ? "block" : "hidden"}
+            onClick={modalButton}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="w-6 h-6 pl-1"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="m4.5 5.25 7.5 7.5 7.5-7.5m-15 6 7.5 7.5 7.5-7.5"
+              />
+            </svg>
+          </button>
         </header>
         <div className="align-middle">
           <Search

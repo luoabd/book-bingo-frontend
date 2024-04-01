@@ -45,7 +45,7 @@ function Card({ stateChanger, metaData, id, prompt }) {
 
         <img
           alt="Placeholder"
-          class="block h-auto w-full"
+          className="block h-auto w-full"
           src={
             metaData[id].imgLink
               ? cover
