@@ -67,7 +67,7 @@ function Bongo24() {
       <div className={showInfo ? "hidden" : "block"}>
         <Info />
       </div>
-      <div class="flex flex-wrap -mx-1 lg:-mx-4">
+      <div className="flex flex-wrap -mx-1 lg:-mx-4">
         <Card
           stateChanger={setMetaData}
           metaData={metaData}
