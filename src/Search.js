@@ -9,6 +9,7 @@ const IconOption = (props) => (
     <div>
       {/* todo: Change from inline css */}
       <img
+        alt=""
         src={props.data.imgLink ? props.data.imgLink : ""}
         style={{
           height: "40px",
@@ -23,7 +24,7 @@ const IconOption = (props) => (
 );
 
 function Search({ id, metaData, stateChanger, returnCover }) {
-  const [inputValue, setValue] = useState("");
+  const [setValue] = useState("");
   const [selectedValue, setSelectedValue] = useState(null);
   const URL = config.url;
 
