@@ -24,7 +24,7 @@ const IconOption = (props) => (
 );
 
 function Search({ id, metaData, stateChanger, returnCover }) {
-  const [setValue] = useState("");
+  const [inputValue, setValue] = useState("");
   const [selectedValue, setSelectedValue] = useState(null);
   const URL = config.url;
 
