@@ -5,7 +5,7 @@ import Clear from "../Clear";
 import Info from "../Info";
 import Footer from "../Footer";
 
-function FullyBooked24() {
+function FullyBooked25() {
   const init_board = (m) => {
     const template = {
       id: null,
@@ -29,13 +29,13 @@ function FullyBooked24() {
   };
 
   const [metaData, setMetaData] = useState(() => {
-    const saved = localStorage.getItem("fullybooked24_data");
+    const saved = localStorage.getItem("fullybooked25_data");
     const initialValue = JSON.parse(saved);
     return initialValue || init_board(25);
   });
 
   useEffect(() => {
-    localStorage.setItem("fullybooked24_data", JSON.stringify(metaData));
+    localStorage.setItem("fullybooked25_data", JSON.stringify(metaData));
   }, [metaData]);
 
   const [showInfo, setShowInfo] = useState(() => {
@@ -50,7 +50,7 @@ function FullyBooked24() {
   return (
     <div className="container my-12 mx-auto px-4 md:px-12">
       <header className="flex justify-center pb-6">
-        <h1 className="text-3xl underline font-bold"> Book Bingo 2024 </h1>
+        <h1 className="text-3xl underline font-bold"> Book Bingo 2025 </h1>
         <button
           className="ml-4 pl-2 bg-coolor-2 rounded-2xl"
           onClick={() => setShowInfo(!showInfo)}
@@ -72,164 +72,164 @@ function FullyBooked24() {
           stateChanger={setMetaData}
           metaData={metaData}
           id="0"
-          prompt="Known for being sad/tragic"
+          prompt="Reminds me of someone in Fully Booked"
         />
         <Card
           id="1"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Non-linear narrative"
+          prompt="Witches"
         />
         <Card
           id="2"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Ugly cover OR Name in the title"
+          prompt="Has a movie adaptation you've already seen"
         />
         <Card
           id="3"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="About the medical field"
+          prompt="Set in a cold climate"
         />
         <Card
           id="4"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Written between 1950 and 2000"
+          prompt="About a natural disaster"
         />
 
         <Card
           id="5"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="From perspective of an animal"
+          prompt="Published in 2025"
         />
         <Card
           id="6"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="By a dead author"
+          prompt="Continue a series"
         />
         <Card
           id="7"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Latin American classic"
+          prompt="Features a thief"
         />
         <Card
           id="8"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="By your favorite author"
+          prompt="Set on a boat or plane"
         />
         <Card
           id="9"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Queernorm"
+          prompt="Set outside your home country"
         />
 
         <Card
           id="10"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Found or chosen family"
+          prompt="Set in a country with your first initial"
         />
         <Card
           id="11"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Locked room mystery"
+          prompt="Siblinghood theme"
         />
         <Card
           id="12"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Any 2024 BOTM"
+          prompt="Any 2025 BOTM"
         />
         <Card
           id="13"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="About dragons"
+          prompt="Book from the Benelux"
         />
         <Card
           id="14"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Written in the 1800s"
+          prompt="Least known book by your favorite author"
         />
 
         <Card
           id="15"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Historical romance"
+          prompt="Spans multiple generations"
         />
         <Card
           id="16"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Features ghosts"
+          prompt="Has a really long title"
         />
         <Card
           id="17"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Short story collection or anthology"
+          prompt="One word title"
         />
         <Card
           id="18"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Title starts with F"
+          prompt="Has a sword on the cover OR in the title"
         />
         <Card
           id="19"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="By multiple authors"
+          prompt="More than 400 pages"
         />
 
         <Card
           id="20"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Mythology"
+          prompt="Pirates"
         />
         <Card
           id="21"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="By winner of Nobel Prize in literature"
+          prompt="City name in title"
         />
         <Card
           id="22"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="By an author you've never read before"
+          prompt="Sci-fi thriller"
         />
         <Card
           id="23"
-          stateChanger={setMetaData}
+          stateChanger={setMetaData}  
           metaData={metaData}
-          prompt="Cozy mystery"
+          prompt="Less than 200 pages"
         />
         <Card
           id="24"
           stateChanger={setMetaData}
           metaData={metaData}
-          prompt="Known for starting genre or subgenre"
+          prompt="Centers around death"
         />
       </div>
       <div className="flex justify-center">
-        <Export metaData={metaData} boardFile={"fullybooked24"} />
-        <Clear stateChanger={setMetaData} defaultBoard={init_board(25)} clearData="fullybooked24_data"/>
+        <Export metaData={metaData} boardFile={"fullybooked25"} />
+        <Clear stateChanger={setMetaData} defaultBoard={init_board(25)} clearData="fullybooked25_data"/>
       </div>
       <Footer extra={false} />
     </div>
   );
 }
 
-export default FullyBooked24;
+export default FullyBooked25;
