@@ -34,12 +34,15 @@ function Search({ id, metaData, stateChanger, returnCover }) {
   };
 
   // handle selection
-  const handleChange = (value) => {
+  const handleChange = async (value) => {
     setSelectedValue(value);
 
-    // const link = value?.volumeInfo.imageLinks.thumbnail;
     const link = value?.imgLink;
     returnCover(link);
+
+    // Fetch alternative covers
+    const altCoversResponse = await fetch(`${URL}/altcovers?edition_id=${value?.edition}`);
+    const altCovers = await altCoversResponse.json();
 
     // Create a temporary copy of your items array
     const itemsCopy = metaData.slice();
@@ -48,11 +51,10 @@ function Search({ id, metaData, stateChanger, returnCover }) {
     // Re-assign the item to have the same values as before (name and id), but change the checked to true
     itemsCopy[idx] = {
       ...itemsCopy[idx],
-      // title: value?.volumeInfo.title,
-      // imgLink: link,
       title: value?.title,
       author: value?.author,
       imgLink: link,
+      altCovers: altCovers,
       isFilled: true,
     };
 
@@ -78,8 +80,6 @@ function Search({ id, metaData, stateChanger, returnCover }) {
         cacheOptions
         placeholder={"Search for a book"}
         value={metaData[id].title ? selectedValue : ""}
-        // getOptionLabel={(e) => (e.volumeInfo ? e.volumeInfo.title : "")}
-        // getOptionValue={(e) => e.id}
         getOptionLabel={(e) => e.title}
         getOptionValue={(e) => e.id}
         loadOptions={loadOptions}

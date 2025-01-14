@@ -4,7 +4,30 @@ import StarRating from "./StarRating";
 import HardMode from "./HardMode";
 
 function Card({ stateChanger, metaData, id, prompt }) {
+  const [coverIndex, setCoverIndex] = useState(0);
   const [cover, setCover] = useState(metaData[id].imgLink);
+
+  const nextCover = () => {
+    if (metaData[id].altCovers && metaData[id].altCovers.length > 0) {
+      const allCovers = metaData[id].altCovers;
+      const newIndex = (coverIndex + 1) % allCovers.length;
+      setCoverIndex(newIndex);
+      
+      const newCoverUrl = allCovers[newIndex];
+      setCover(newCoverUrl);
+  
+  
+      // Update the metadata with the new selected cover
+      const itemsCopy = metaData.slice();
+      const idx = itemsCopy.findIndex((x) => x.id === parseInt(id));
+      itemsCopy[idx] = {
+        ...itemsCopy[idx],
+        imgLink: newCoverUrl,
+      };
+    
+      stateChanger(itemsCopy);
+    }
+  };
 
   const removeBook = () => {
     // Create a temporary copy of your items array
@@ -18,6 +41,7 @@ function Card({ stateChanger, metaData, id, prompt }) {
       title: null,
       starRating: 0,
       isFilled: null,
+      altCovers: null,
     };
 
     if ("hardMode" in metaData[id]) {
@@ -34,25 +58,36 @@ function Card({ stateChanger, metaData, id, prompt }) {
   return (
     <div className="my-1 px-1 w-full sm:w-1/2 md:w-1/3 lg:my-5 lg:px-5 lg:w-1/5">
       <div className="rounded-lg shadow-lg  min-h-full bg-coolor-2 flex flex-col">
+      <div className="relative">
         <div className={metaData[id].isFilled ? "block" : "hidden"}>
           <button
-            className="absolute top-auto bg-coolor-2 text-black hover:font-bold m-2 items-center justify-center rounded-full h-6 w-6"
-            onClick={removeBook}
+              className="absolute top-2 left-2 z-10 bg-coolor-2 text-black hover:font-bold items-center justify-center rounded-full h-6 w-6"
+              onClick={removeBook}
           >
             &times;
           </button>
         </div>
-
-        <img
-          alt="Placeholder"
-          className="block h-auto w-full"
-          src={
-            metaData[id].imgLink
-              ? cover
-              : "https://picsum.photos/600/400/?random"
-          }
-        />
-
+          <img
+            alt="Placeholder"
+            className="block h-auto w-full"
+            src={
+              metaData[id].imgLink
+                ? cover
+                : "https://picsum.photos/600/400/?random"
+            }
+          />
+          {metaData[id].altCovers && metaData[id].altCovers.length > 0 && (
+                    <div className={metaData[id].isFilled ? "block" : "hidden"}>
+            <button
+            onClick={nextCover}
+            className="absolute bottom-2 right-2 z-10 bg-coolor-2 text-black hover:font-bold p-2 rounded-full"
+            >
+            ↻
+          </button>
+          </div>
+        )}
+      </div>
+      
         <header className="h-32  items-center justify-between leading-tight p-2 md:p-4 text-center">
           <h1 className="text-lg text-center">{prompt}</h1>
         </header>
