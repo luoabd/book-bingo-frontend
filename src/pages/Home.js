@@ -16,7 +16,7 @@ function Home() {
             <Link to="/bongo24">Chaos Bongo</Link>
           </button>
           <button className="bg-coolor-2 w-full lg:w-1/3 text-black font-bold py-2 px-4 rounded-lg align-center mx-4 mb-4">
-            <Link to="/rfantasy">r/Fantasy 2024 Book Bingo</Link>
+            <Link to="/rfantasy">r/Fantasy 2025 Book Bingo</Link>
           </button>
       </div>
       <Footer />
