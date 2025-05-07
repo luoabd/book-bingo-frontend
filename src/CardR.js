@@ -175,7 +175,7 @@ function CardR({
             }
           />
           {metaData[id].altCovers && metaData[id].altCovers.length > 0 && (
-            <div className={metaData[id].isFilled ? "block" : "hidden"}>
+            <div className={metaData[id].isFilled && searchType === "book" ? "block" : "hidden"}>
               <button
                 onClick={nextCover}
                 className="absolute bottom-2 right-2 z-10 bg-coolor-2 text-black hover:font-bold p-2 rounded-full"
