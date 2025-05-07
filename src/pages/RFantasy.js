@@ -45,11 +45,12 @@ function RFantasy() {
       hardMode: false,
       isFilled: false,
       prompt: null,
+      searchType: "book",
     };
 
     // Use stringify and parse to copy the values instead of referencing them
     let board_arr = [
-      ...Array(m+4)
+      ...Array(m + 4)
         .fill(0)
         .map((x) => JSON.parse(JSON.stringify(template))),
     ];
@@ -59,8 +60,8 @@ function RFantasy() {
       board_arr[i]["prompt"] = promptList[i];
     }
     for (let j = 1; j < 5; j++) {
-      board_arr[m+j-1]["id"] = m + j - 1;
-      board_arr[m+j-1]["prompt"] = "Short Story " + (j+1);
+      board_arr[m + j - 1]["id"] = m + j - 1;
+      board_arr[m + j - 1]["prompt"] = "Short Story " + (j + 1);
     }
 
     return board_arr;
@@ -263,6 +264,7 @@ function RFantasy() {
           stateChanger={setMetaData}
           metaData={metaData}
           defaultPrompt={promptList[23]}
+          allowMediaTypeSelection={true}
         />
         <CardR
           id="24"
