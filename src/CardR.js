@@ -1,5 +1,7 @@
 import React, { useState, useRef } from "react";
 import Search from "./Search";
+import GameSearch from "./GameSearch";
+import MediaSearch from "./MediaSearch";
 import StarRating from "./StarRating";
 import HardMode from "./HardMode";
 
@@ -10,11 +12,13 @@ function CardR({
   defaultPrompt,
   shortStories = false,
   modalButton,
+  allowMediaTypeSelection = false,
 }) {
   const [coverIndex, setCoverIndex] = useState(0);
   const [cover, setCover] = useState(metaData[id].imgLink);
   const [prompt, setPrompt] = useState(metaData[id].prompt || defaultPrompt);
   const [isUpdating, setisUpdating] = useState(false);
+  const [searchType, setSearchType] = useState(metaData[id].searchType || "book");
   const ref = useRef(null);
 
   const removeBook = () => {
@@ -42,16 +46,30 @@ function CardR({
     stateChanger(itemsCopy);
   };
 
+  const handleSearchTypeChange = (e) => {
+    const newSearchType = e.target.value;
+    setSearchType(newSearchType);
+
+    const itemsCopy = metaData.slice();
+    const idx = itemsCopy.findIndex((x) => x.id === parseInt(id));
+    itemsCopy[idx] = {
+      ...itemsCopy[idx],
+      searchType: newSearchType,
+    };
+
+    stateChanger(itemsCopy);
+  };
+
   const nextCover = () => {
     if (metaData[id].altCovers && metaData[id].altCovers.length > 0) {
       const allCovers = metaData[id].altCovers;
       const newIndex = (coverIndex + 1) % allCovers.length;
       setCoverIndex(newIndex);
-      
+
       const newCoverUrl = allCovers[newIndex];
       setCover(newCoverUrl);
-  
-  
+
+
       // Update the metadata with the new selected cover
       const itemsCopy = metaData.slice();
       const idx = itemsCopy.findIndex((x) => x.id === parseInt(id));
@@ -59,7 +77,7 @@ function CardR({
         ...itemsCopy[idx],
         imgLink: newCoverUrl,
       };
-    
+
       stateChanger(itemsCopy);
     }
   };
@@ -90,6 +108,50 @@ function CardR({
     stateChanger(itemsCopy);
   };
 
+  const renderSearchComponent = () => {
+    if (!allowMediaTypeSelection) {
+      return (
+        <Search
+          stateChanger={stateChanger}
+          metaData={metaData}
+          returnCover={setCover}
+          id={id}
+        />
+      );
+    }
+
+    switch (searchType) {
+      case "game":
+        return (
+          <GameSearch
+            stateChanger={stateChanger}
+            metaData={metaData}
+            returnCover={setCover}
+            id={id}
+          />
+        );
+      case "movie-tv":
+        return (
+          <MediaSearch
+            stateChanger={stateChanger}
+            metaData={metaData}
+            returnCover={setCover}
+            id={id}
+          />
+        );
+      default:
+        return (
+          <Search
+            stateChanger={stateChanger}
+            metaData={metaData}
+            returnCover={setCover}
+            id={id}
+          />
+        );
+    }
+  };
+
+
   return (
     <div className="my-1 px-1 w-full sm:w-1/2 md:w-1/3 lg:my-5 lg:px-5 lg:w-1/5">
       <div className="rounded-lg shadow-lg  min-h-full bg-coolor-2 flex flex-col">
@@ -113,12 +175,12 @@ function CardR({
             }
           />
           {metaData[id].altCovers && metaData[id].altCovers.length > 0 && (
-            <div className={metaData[id].isFilled ? "block" : "hidden"}>
+            <div className={metaData[id].isFilled && searchType === "book" ? "block" : "hidden"}>
               <button
                 onClick={nextCover}
                 className="absolute bottom-2 right-2 z-10 bg-coolor-2 text-black hover:font-bold p-2 rounded-full"
               >
-              ↻
+                ↻
               </button>
             </div>
           )}
@@ -185,13 +247,23 @@ function CardR({
             </svg>
           </button>
         </header>
+
+        {/* Add the dropdown selector for search type */}
+        {allowMediaTypeSelection && (
+          <div className="px-2 mb-2">
+            <select
+              className="w-full p-2 rounded bg-coolor-3 text-sm"
+              value={searchType}
+              onChange={handleSearchTypeChange}
+            >
+              <option value="book">Book</option>
+              <option value="game">Game</option>
+              <option value="movie-tv">Movie/TV Show</option>
+            </select>
+          </div>
+        )}
         <div className="align-middle">
-          <Search
-            stateChanger={stateChanger}
-            metaData={metaData}
-            returnCover={setCover}
-            id={id}
-          />
+          {renderSearchComponent()}
         </div>
         <div className={metaData[id].isFilled ? "block" : "hidden"}>
           <StarRating
