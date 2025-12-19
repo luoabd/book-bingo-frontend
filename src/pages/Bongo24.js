@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Card from "../Card";
-import Export from "../Export";
+import Render from "../Render";
 import Clear from "../Clear";
 import Info from "../Info";
 import Footer from "../Footer";
@@ -224,7 +224,7 @@ function Bongo24() {
         />
       </div>
       <div className="flex justify-center">
-        <Export metaData={metaData} boardFile={"bongo24"} />
+        <Render metaData={metaData} boardFile={"bongo24"} />
         <Clear stateChanger={setMetaData} defaultBoard={init_board(25)} clearData="bongo24_data"/>
       </div>
       <Footer extra={false} />
