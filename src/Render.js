@@ -1,41 +1,32 @@
 import React, { useState } from "react";
 import { config } from "./Constants";
 
-function Export({ metaData, boardFile }) {
+function Render({ metaData, boardFile }) {
   const [isLoading, setIsLoading] = useState(false);
+  const URL = config.url;
   const handleButton = async () => {
     setIsLoading(true);
-    exportToCsv(metaData);
+    const response = await fetch(`${URL}/canvas?board=${boardFile}`, {
+      method: "POST",
+      mode: "cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(metaData),
+    });
+    const img = await response.blob();
+    let url = window.URL.createObjectURL(img);
+    let a = document.createElement("a");
+    a.href = url;
+    a.download = `${boardFile}.png`;
+    a.click();
     setIsLoading(false);
   };
-
-  const exportToCsv = (books) => {
-    const headers = ["Prompt", "Title", "Author", "StarRating", "Hard Mode"];
-    const rows = books.map((book) => [
-      `"${book.prompt.replace(/"/g, '""')}"`,
-      book.title ? `"${book.title.replace(/"/g, '""')}"` : "",
-      book.author,
-      book.starRating,
-      book.hardMode,
-    ]);
-
-    const csvContent = [headers, ...rows].map(e => e.join(",")).join("\n");
-
-    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "book_bingo_metadata.csv";
-    a.click();
-  };
-
   return (
     <button
       className="bg-coolor-2 text-black font-bold py-2 px-4 rounded mx-4 flex"
       onClick={handleButton}
       disabled={isLoading}
     >
-      Export metadata
+      Export to a picture
       <svg
         aria-hidden="true"
         className={
@@ -60,4 +51,4 @@ function Export({ metaData, boardFile }) {
   );
 }
 
-export default Export;
+export default Render;

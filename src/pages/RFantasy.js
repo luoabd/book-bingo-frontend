@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CardR from "../CardR";
 import Export from "../Export";
+import Render from "../Render";
 import Clear from "../Clear";
 import Info from "../Info";
 import Footer from "../Footer";
@@ -283,7 +284,8 @@ function RFantasy() {
       </div>
 
       <div className="flex justify-center">
-        <Export metaData={metaData} boardFile="rfantasy" />
+        <Render metaData={metaData} boardFile="rfantasy" />
+        <Export metaData={metaData} />
         <Clear
           stateChanger={setMetaData}
           defaultBoard={init_board(25)}
