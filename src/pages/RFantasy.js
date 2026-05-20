@@ -8,31 +8,31 @@ import Footer from "../Footer";
 import Modal from "../Modal";
 
 const promptList = [
-  "Knights and Paladins",
-  "Hidden Gem",
-  "Published in the 80s",
-  "High Fashion",
-  "Down with the System",
-  "Impossible Places",
-  "A Book in Parts",
-  "Gods and Pantheons",
-  "Last in a Series",
-  "Book Club or Readalong",
-  "Parents",
-  "Epistolary",
-  "Published in 2025",
-  "Author of Color",
+  "Trans or Nonbinary Protagonist",
+  "Judge a Book By Its Title",
+  "Translated",
   "Small Press or Self Published",
-  "Biopunk",
-  "Elves and Dwarves",
-  "LGBGTQIA Protagonist",
+  "Unusual Transportation",
+  "The Afterlife",
+  "Game Changer",
+  "Vacation Spot",
   "Five Short Stories",
-  "Stranger in a Strange Land",
-  "Recycle A Bingo Square",
-  "Cozy SFF",
-  "Generic Title",
-  "Not A Book",
-  "Pirates",
+  "Older Protagonist",
+  "Duology Part 1",
+  "r/Fantasy Book Club or Readalong Book",
+  "Published in 2026",
+  "Explorers and Rangers",
+  "Duology Part 2",
+  "One-Word Title",
+  "Non-Human Protagonist",
+  "Middle Grade",
+  "First Contact",
+  "Murder Mystery",
+  "Cat Squasher",
+  "Feast Your Eyes on This",
+  "Published in the 70s",
+  "Politics and Court Intrigue",
+  "Author of Color",
 ];
 
 function RFantasy() {
@@ -69,13 +69,13 @@ function RFantasy() {
   };
 
   const [metaData, setMetaData] = useState(() => {
-    const saved = localStorage.getItem("rfantasy25_data");
+    const saved = localStorage.getItem("rfantasy26_data");
     const initialValue = JSON.parse(saved);
     return initialValue || init_board(25);
   });
 
   useEffect(() => {
-    localStorage.setItem("rfantasy25_data", JSON.stringify(metaData));
+    localStorage.setItem("rfantasy26_data", JSON.stringify(metaData));
   }, [metaData]);
 
   const [showInfo, setShowInfo] = useState(() => {
@@ -97,7 +97,7 @@ function RFantasy() {
       <header className="flex justify-center pb-6">
         <h1 className="text-3xl underline font-bold">
           {" "}
-          r/Fantasy 2025 Book Bingo{" "}
+          r/Fantasy 2026 Book Bingo{" "}
         </h1>
         <button
           className="ml-4 pl-2 bg-coolor-2 rounded-2xl"
@@ -170,6 +170,8 @@ function RFantasy() {
           stateChanger={setMetaData}
           metaData={metaData}
           defaultPrompt={promptList[8]}
+          shortStories={true}
+          modalButton={toggleModal}
         />
         <CardR
           id="9"
@@ -232,8 +234,6 @@ function RFantasy() {
           stateChanger={setMetaData}
           metaData={metaData}
           defaultPrompt={promptList[18]}
-          shortStories={true}
-          modalButton={toggleModal}
         />
         <CardR
           id="19"
@@ -265,7 +265,6 @@ function RFantasy() {
           stateChanger={setMetaData}
           metaData={metaData}
           defaultPrompt={promptList[23]}
-          allowMediaTypeSelection={true}
         />
         <CardR
           id="24"
@@ -289,7 +288,7 @@ function RFantasy() {
         <Clear
           stateChanger={setMetaData}
           defaultBoard={init_board(25)}
-          clearData="rfantasy25_data"
+          clearData="rfantasy26_data"
         />
       </div>
       <Footer extra={true} />

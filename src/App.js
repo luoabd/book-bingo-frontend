@@ -13,7 +13,6 @@ function App() {
     <Routes>
         <Route index element={<Home />} />
         <Route path="fullybooked26" element={<FullyBooked26 />} />
-        <Route path="bongo24" element={<Bongo24 />} />
         <Route path="rfantasy" element={<RFantasy />} />
         <Route path="*" element={<ErrorPage />} />
     </Routes>
