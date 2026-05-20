@@ -1,7 +1,7 @@
 # Book Bingo Maker 
 This project is a bingo maker for the FullyBooked club as well as reddit's r/Fantasy bingo reading challenges.
 
-To learn more about the r/fantasy challenge visit the [announcement post](https://www.reddit.com/r/Fantasy/comments/ttrev1/official_rfantasy_2022_book_bingo_challenge/)
+To learn more about the r/fantasy challenge visit the [announcement post](https://www.reddit.com/r/Fantasy/comments/1s9n3e6/official_rfantasy_2026_book_bingo_challenge/)
 
 This project is live at https://bingo.luoabd.nl/
 
